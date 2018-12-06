@@ -1,0 +1,55 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "vlpan",
+      "password": "1q2w3ev",
+      "email": "vlpan@gmail.com",
+      "accessLevel": 1
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "product1",
+      "price": "51",
+      "amount": 73,
+      "updatedAt": "2018-10-10T18:53:39.610Z"
+    },
+    {
+      "id": 2,
+      "name": "product2",
+      "price": "3",
+      "amount": 124,
+      "updatedAt": "2018-10-07T13:31:27.673Z"
+    },
+    {
+      "name": "Lem",
+      "price": 24,
+      "amount": 12,
+      "updatedAt": "2018-10-10T04:43:17.004Z",
+      "createdAt": "2018-10-10T04:43:17.004Z",
+      "id": 3
+    },
+    {
+      "id": 4,
+      "name": "Lem2",
+      "price": 215,
+      "amount": 258,
+      "updatedAt": "2018-11-19T15:55:12.763Z",
+      "createdAt": "2018-10-10T04:49:36.663Z"
+    }
+  ],
+  "login": [
+    {
+      "token": "random-nig-string-21934wjdngo8u213rfjngv9321",
+      "data": {
+        "id": 1,
+        "name": "vlpan",
+        "password": "1q2w3ev",
+        "email": "vlpan@gmail.com",
+        "accessLevel": 1
+      }
+    }
+  ]
+}

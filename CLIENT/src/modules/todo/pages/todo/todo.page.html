@@ -1,0 +1,37 @@
+<div>
+  THIS IS ===TODO=== PAGE
+
+  <app-add-todo-form
+        (submitted)="addTodo($event)">
+        <h3>Add Todo</h3>
+        <app-auth-remember
+          (checked)="rememberUser($event)">
+        </app-auth-remember>
+        <button type="submit">
+          Login
+        </button>
+    </app-add-todo-form>
+
+
+  <div [ngStyle]="{border: '1px solid red'}">
+    ENTRY:
+    <div #entry></div>
+  </div>
+
+  <app-todo-list (submitted)="submitTodos($event)">
+    <h1>Hello world from translude 1</h1>
+    <div>This is from translude 2</div>
+  </app-todo-list>
+
+  <button (click)="onDestroy(component2)" >  Destroy Dynamic component2 </button>
+  <button (click)="onDestroy(component)" >  Destroy Dynamic component1 </button>
+  <button (click)="reorderComponents()" >  MOVE COMPONENT </button>
+
+  <div [ngStyle] = "{border: '1px solid green'}">
+      <ng-template #t let-name let-location="location"> 
+       <h1>{{name}} ::: {{location}}</h1>
+      </ng-template>
+  </div>
+
+
+</div>

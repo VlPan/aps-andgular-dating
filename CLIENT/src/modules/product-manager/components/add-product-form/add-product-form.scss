@@ -1,0 +1,32 @@
+.add-form-wrapper {
+  padding: 30px;
+  border: 1px solid black;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.close-btn {
+  margin-left: 20px;
+}
+
+.update-dialog-content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.center-container {
+  width: 100%;
+}
+
+.submitted {
+  color: rgb(76, 196, 6);
+  font-weight: 700;
+}

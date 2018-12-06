@@ -1,0 +1,54 @@
+
+<div mat-dialog-content class="update-dialog-content">
+  <div class="center-container">
+    <h1 mat-dialog-title>Обновление продукта: {{data.product.name}}</h1>
+    <form class="example-form" (ngSubmit)="submit()">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Имя" [formControl]="nameFormControl"
+              [errorStateMatcher]="matcher"
+              [value]="data.product.name"
+              (keyup)="oneValueChanged()"
+              >
+        <mat-error *ngIf="nameFormControl.hasError('required')">
+          Пожайлуста, введите <strong>название</strong> продукта
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Цена" [formControl]="priceFormControl"
+        [errorStateMatcher]="matcher"
+        [value]="data.product.price"
+        (keyup)="oneValueChanged()"
+        >
+        <mat-error *ngIf="priceFormControl.hasError('required')">
+          Пожайлуста укажите <strong>цену</strong> продукта
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="Количество" [formControl]="amountFormControl"
+          type="number"
+          [errorStateMatcher]="matcher"
+          [value]="data.product.amount"
+          (keyup)="oneValueChanged()"
+          >
+          <mat-error *ngIf="amountFormControl.hasError('min')">
+            Пожайлуста укажите <strong>количество</strong> продуктов данного типа
+          </mat-error>
+      </mat-form-field>
+      
+      <div mat-dialog-actions>
+        <button mat-stroked-button [disabled]="
+          nameFormControl.hasError('required') ||
+          priceFormControl.hasError('required') ||
+          !isOneValChanged
+          " color="primary">
+          Обновить
+        </button>
+        <button mat-stroked-button  mat-dialog-close [mat-dialog-close]="false" class="close-btn">Закрыть</button>
+
+      </div>
+
+    </form>
+  </div>
+</div>

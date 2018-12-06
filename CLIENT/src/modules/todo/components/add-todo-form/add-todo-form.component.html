@@ -1,0 +1,19 @@
+<div>
+  <form (ngSubmit)="submit(form.value)" #form="ngForm">
+    <ng-content select="h3"></ng-content>
+    <h1>ADD TODO FORM COMPONENT</h1>
+    <h2>Title: </h2>
+    <h3>{{ title }}</h3>
+    <label>
+      Email address
+      <input type="email" name="email" ngModel #email>
+    </label>
+    <label>
+      Password
+      <input type="password" name="password" ngModel>
+    </label> 
+    <ng-content select="auth-remember"></ng-content>
+    <ng-content select="button"></ng-content>
+    <ng-content select="app-auth-remember"></ng-content>
+  </form>
+</div>

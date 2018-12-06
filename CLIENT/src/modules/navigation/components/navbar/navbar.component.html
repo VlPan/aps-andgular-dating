@@ -1,0 +1,14 @@
+
+<div>
+    <a
+      class="nt-nav"
+      mat-raised-button
+      color="accent"
+      *ngFor="let item of nav"
+      [routerLink]="item.link"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: item.exact }">
+      {{ item.name }}
+    </a>
+    <router-outlet></router-outlet>
+</div>

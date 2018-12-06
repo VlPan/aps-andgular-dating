@@ -1,0 +1,68 @@
+
+
+<h1 mat-dialog-title>Добавление продуктов</h1>
+<mat-form-field class="example-chip-list">
+    <mat-chip-list #chipList>
+      <mat-chip
+        *ngFor="let product of selectedProductNames"
+        [selectable]="selectable"
+        [removable]="removable"
+        (removed)="remove(product)">
+        {{product}}
+        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+      </mat-chip>
+      <input
+        placeholder="Новый продукт..."
+        #productInput
+        [formControl]="productCtrl"
+        [matAutocomplete]="auto"
+        [matChipInputFor]="chipList"
+        [matChipInputFor]="chipList"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        [matChipInputAddOnBlur]="addOnBlur"
+        (matChipInputTokenEnd)="add($event)"
+      >
+
+    </mat-chip-list>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+      <mat-option *ngFor="let product of filteredProducts | async" [value]="product">
+        {{product}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+
+
+    <h3 *ngIf="selectedProductNames.length > 0">Пополненные продукты:</h3>
+    <div class="product-forms-wrapper">
+      <add-product-form *ngFor="let product of replenishProductNames"
+      class="form-anim"
+      [productName]="product"
+      (productAdded)="addProduct($event)"
+      (addProductCanceled)="cancelAddProduct($event)"
+      [price]="getPriceByName(product)"
+      >
+      </add-product-form>
+    </div>
+
+    <h3 *ngIf="addedProductNames.length > 0">Добавленные продукты</h3>
+    <div class="product-forms-wrapper">
+        <add-product-form *ngFor="let product of addedProductNames"
+        class="form-anim"
+        [productName]="product"
+        (productAdded)="addProduct($event)"
+        (addProductCanceled)="cancelAddProduct($event)"
+        [price]="getPriceByName(product)"
+      >
+      </add-product-form>
+    </div>
+
+
+
+  <div mat-dialog-actions>
+    <button mat-button  mat-dialog-close [mat-dialog-close]="false" color="error" >Отмена</button>
+    <button mat-button  color="primary"
+    [disabled]="finalAddedProductsForUpdate.length === 0  && finalAddedProductsForCreate.length === 0"
+    (click)="saveResults()"
+    >Добавить</button>
+  </div>

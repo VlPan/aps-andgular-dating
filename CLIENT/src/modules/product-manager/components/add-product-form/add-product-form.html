@@ -1,0 +1,85 @@
+<div class="add-form-wrapper">
+<h4>{{productName}}</h4>
+<form class="example-form" (ngSubmit)="submit()">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Цена" [formControl]="priceFormControl"
+      [errorStateMatcher]="matcher"
+      [value]="price || ''"
+      type="number"
+      >
+      <mat-error *ngIf="priceFormControl.hasError('required')">
+        Пожайлуста укажите <strong>цену</strong> продукта
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Количество" [formControl]="amountFormControl"
+        type="number"
+        [errorStateMatcher]="matcher"
+        >
+        <mat-error *ngIf="amountFormControl.hasError('min') || amountFormControl.hasError('required')">
+          Пожайлуста укажите <strong>количество</strong> продуктов данного типа
+        </mat-error>
+    </mat-form-field>
+    
+ 
+    <button 
+    style="margin-top: 20px"
+    *ngIf="!submitted"
+      mat-stroked-button [disabled]="
+      amountFormControl.hasError('min') ||
+      amountFormControl.hasError('required') ||
+      priceFormControl.hasError('required')
+      " color="primary">
+      Добавить 
+    </button>
+
+</form>
+
+  <h5
+  class="submitted"
+  *ngIf="submitted"
+  >Готово!</h5>
+
+  <button  
+  mat-stroked-button
+  color="error"
+  *ngIf="submitted"
+  (click)="cancelChanges(productName)"
+  >
+  Отменить
+  </button>
+
+<!-- 
+<form class="example-form" (ngSubmit)="submit()">
+
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Цена" [formControl]="priceFormControl"
+      [errorStateMatcher]="matcher"
+      [value]="price || ''"
+      >
+      <mat-error *ngIf="priceFormControl.hasError('required')">
+        Пожайлуста укажите <strong>цену</strong> продукта
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Количество" [formControl]="amountFormControl"
+        type="number"
+        [errorStateMatcher]="matcher"
+        >
+        <mat-error *ngIf="amountFormControl.hasError('min')">
+          Пожайлуста укажите <strong>количество</strong> продуктов данного типа
+        </mat-error>
+    </mat-form-field>
+    
+    <button mat-stroked-button [disabled]="
+      amountFormControl.hasError('min') ||
+      priceFormControl.hasError('required')
+      " color="primary">
+      Добавить
+    </button>
+
+
+  </form> -->
+</div>

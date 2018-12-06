@@ -1,0 +1,46 @@
+.add-dialog-content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.example-chip-list {
+  width: 100%;
+}
+
+
+.product-forms-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.product-forms-wrapper > *{
+  width: 50%;
+}
+
+.form-anim {
+  animation: fadeIn .4s, moveInBottom .4s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    transform: translateY(-50px);
+  }
+  70% {
+    transform: translateY(20px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
