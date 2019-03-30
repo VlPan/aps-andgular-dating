@@ -17,19 +17,22 @@ import { ProductManagerPage } from '../product-manager/pages';
 import { ProductManagerModule } from './../product-manager/product-manager.module';
 import { routes } from './navigation.routes';
 import { MatButtonModule } from '@angular/material';
+import { PlaygroundPage } from './pages/playground/playground.page';
+import { TodoModule } from 'modules/todo';
 
 @NgModule({
   declarations: [
     TodNavbarComponent,
     NotFoundPage,
-    HomePage
+    HomePage,
+    PlaygroundPage
   ],
   imports: [
-
-  CommonModule,
+    CommonModule,
     BrowserModule,
     RouterModule.forRoot(routes),
     ProductManagerModule,
+    TodoModule,
     MatButtonModule
   ],
   providers: [],

@@ -17,6 +17,11 @@ export class TodNavbarComponent {
       link: '/home/product-manager',
       name: 'Панель управления складом водки',
       exact: true
+    },
+    {
+      link: '/home/playground',
+      name: 'Playground',
+      exact: true
     }
   ];
 }
